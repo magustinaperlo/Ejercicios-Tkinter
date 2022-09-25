@@ -1,9 +1,16 @@
 from tkinter import *
+from tkinter import messagebox
 #---------------------------------------------------------------------
 def añadir():
-    widgetPelidIngresadas.insert(END, ingresoPelicula.get())
-    print("ISAUI Film guardada con éxito-----"*4)
-    ingresoPelicula.delete(0,END)
+    #validacion para campo vacio
+    a=ingresoPelicula.get()
+    if (a.isspace() or len(a) <= 1):
+        messagebox.showinfo(message="El nombre de la película no debe comenzar con un espacio", title="Error")
+        ingresoPelicula.delete(0, END)
+    else:
+        widgetPelidIngresadas.insert(END, a) #Se inserta en Listbox
+        ingresoPelicula.delete(0, END) #Se limpia el campo
+    
     
 
 #---------------------------------------------------------------------
