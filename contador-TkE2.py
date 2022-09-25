@@ -6,6 +6,9 @@ def decremetar():
 
 ventana=Tk()
 ventana.title("Contador Decreciente")
+#fijamos los valores para que el usuario no extienda ni achique demasiado la ventana.
+ventana.minsize(400, 150) 
+ventana.maxsize(400, 150)
 ventana.rowconfigure(0, minsize=35, weight=1)
 ventana.columnconfigure([0,1,2], minsize=35, weight=1)
 etiquetaContador=Label(ventana, text="Contador").grid(row=0, column=0)
