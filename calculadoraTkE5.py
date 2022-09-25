@@ -53,13 +53,13 @@ def dividir():
         valor2=eValor2.get()
         labelResultado.grid()
      
-        if valor1=="" or valor2=="" or valor2==0:
+        if valor1=="" or valor2=="":
             messagebox.showwarning("Error", "Falta ingresar uno o mas valores")
         else:
             resultado=int(valor1) / int(valor2)
             labelResultado["text"]=resultado
     except:
-        messagebox.showerror("Error", "Ingrese un valor correcto")   
+        messagebox.showerror("Error", "No es posible dividir por cero")   
 #......................................................................................
 def porcentaje():
     try:
@@ -115,6 +115,5 @@ clear=Button(ventana, text="Clear", bg="green", command=reset)
 clear.grid(row=8, column=1, sticky="nsew")
 
 ventana.mainloop()
-
 
 
