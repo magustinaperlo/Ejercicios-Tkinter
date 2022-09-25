@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 from unittest import result
 #...................................................................
 
@@ -11,8 +12,11 @@ def calcular():
         resultado=int(boxValor1.get())*int(boxValor2.get())
     elif varOpcion.get() == 4:
         if int(boxValor2.get())==0:
-            resultado="No se puede / por cero"
-            variableResultado.set(resultado)
+            # resultado="No se puede / por cero"
+            #  variableResultado.set(resultado)
+            #buena práctica para mostrar errores al usuario
+            messagebox.showinfo(message="El nombre de la película no debe comenzar con un espacio", title="Error")
+           
         else:
             resultado=int(boxValor1.get())/int(boxValor2.get())
     else:
@@ -37,7 +41,8 @@ boxValor1.place(x=160, y=65)
 boxValor2=Entry(ventana)
 boxValor2.place(x=160, y=115)
 variableResultado=StringVar()
-boxResultado=Entry(ventana, textvariable=variableResultado)
+#el usuario no debe ingresar valores en el campo de resultado, por eso se añade READONLY
+boxResultado=Entry(ventana, textvariable=variableResultado, state="readonly")
 boxResultado.place(x=160, y=165)
 
 varOpcion=IntVar()
